@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { PostService } from '../../services/post.service';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Post } from '../../models/post'
+import { Observable } from 'rxjs/internal/Observable';
+import { PostStateService } from '../../services/post-state.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostsComponent implements OnInit {
-  public posts: Post[];
+  allPosts$: Observable<Post[]>;
 
-  constructor(private postService: PostService) { }
+  constructor(public postState: PostStateService) { }
 
   ngOnInit(): void {
-    this.postService.getCategories().then((json) => this.posts = json);
+    this.allPosts$ = this.postState.allPosts$;
   }
 
 }

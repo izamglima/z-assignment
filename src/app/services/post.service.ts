@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Post } from '../models/post';
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getCategories() {
-    return fetch(this.API_ENDPOINT)
-    .then((response) => response.json());
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(apiUrl);
   }
+
 }
