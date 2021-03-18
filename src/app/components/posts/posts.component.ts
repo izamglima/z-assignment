@@ -13,7 +13,7 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.postService.getCategories().then((json) => this.posts = json);
+    this.postService.getPosts().then((json) => this.posts = json);
   }
 
 }

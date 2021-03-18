@@ -9,7 +9,7 @@ export class PostService {
 
   constructor() { }
 
-  getCategories() {
+  getPosts() {
     return fetch(this.API_ENDPOINT)
     .then((response) => response.json());
   }
