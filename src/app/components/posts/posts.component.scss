@@ -1,0 +1,27 @@
+.cards__container {
+  width: 100%;
+  display: grid;
+  gap: 1em;
+  grid-template-rows: repeat(10, auto);
+}
+
+app-post-details {
+  perspective: 600px; /* 3D-space by affecting the distance between the Z plane and the user */
+  width: 120px;
+  height: 120px;
+}
+
+/* Screen larger than 600px --> 3 column */
+@media (min-width: 600px) {
+  .cards__container { grid-template-columns: repeat(3, auto); }
+}
+
+/* Screen larger than 900px --> 6 columns */
+@media (min-width: 900px) {
+  .cards__container { grid-template-columns: repeat(6, auto); }
+}
+
+/* Screen larger than 1200 --> 10 columns */
+@media (min-width: 1200px) {
+  .cards__container { grid-template-columns: repeat(10, auto); }
+}

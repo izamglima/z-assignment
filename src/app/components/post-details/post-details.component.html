@@ -1,0 +1,8 @@
+<div class="card" (click)="toggleCard(isFlipped)" [ngClass]="{'is-flipped': isFlipped}">
+  <div class="card__face card__face--front" >
+    <p class="card__face--content">id: {{post.id}}</p>
+  </div>
+  <div class="card__face card__face--back">
+    <p class="card__face--content">userId: {{post.userId}}</p>
+  </div>
+</div>

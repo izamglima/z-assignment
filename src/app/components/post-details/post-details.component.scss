@@ -1,0 +1,32 @@
+.card {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  transition: transform 1s;
+  transform-origin: center right;
+  transform-style: preserve-3d; /*  inherit a parent’s perspective */
+  border: 1px solid #cf0;
+
+  .card__face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden; /* hide the back-side of the faces */
+    -webkit-backface-visibility: hidden;
+    background-color: #aa9cd1;
+  }
+
+  .card__face--back {
+    transform: rotateY(180deg);
+  }
+
+  .card__face--content {
+    text-align: center;
+    line-height: 5.5em;
+    color: #cf0;
+  }
+}
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
